@@ -90,3 +90,5 @@ if has('gui_running')
 else
 	colorscheme molokai
 endif
+
+map <F5> :NERDTreeToggle<CR>
