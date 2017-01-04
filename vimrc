@@ -22,6 +22,9 @@ Plugin 'vim-scripts/Pydiction'
 Plugin 'vim-scripts/indentpython.vim'
 Plugin 'scrooloose/syntastic'
 
+" Auto completion
+Plugin 'davidhalter/jedi-vim'
+
 " Code folding
 Plugin 'tmhedberg/SimpylFold'
 
@@ -91,4 +94,40 @@ else
 	colorscheme molokai
 endif
 
-map <F5> :NERDTreeToggle<CR>
+nnoremap <F5> :NERDTreeToggle<CR>
+
+" Taglist stuff
+let Tlist_Auto_Highlight_Tag=1  
+let Tlist_Show_One_File=1
+let Tlist_Exit_OnlyWindow=1
+let Tlist_Auto_Update=1  
+let Tlist_Use_Right_Window=1  
+nnoremap <silent> <F8> :TlistToggle<CR>  
+
+filetype plugin on  
+autocmd FileType python set omnifunc=pythoncomplete#Complete  
+
+" 设置pydiction位置
+let g:pydiction_location='~/.vim/bundle/Pydiction/complete-dict'
+
+""""""""""""""""""""""
+" Quickly Run
+""""""""""""""""""""""
+map <F10> :call CompileRunGcc()<CR>
+func! CompileRunGcc()
+	exec "w"
+	if &filetype == 'c'
+		exec "!g++ % -o %<"
+		exec "!time ./%<"
+	elseif &filetype == 'cpp'
+		exec "!g++ % -o %<"
+		exec "!time ./%<"
+	elseif &filetype == 'java'
+		exec "!javac %"
+		exec "!time java %<"
+	elseif &filetype == 'sh'
+		:!time bash %
+	elseif &filetype == 'python'
+		exec "!time python %"
+	endif
+endfunc
