@@ -21,6 +21,7 @@ Plugin 'nvie/vim-flake8'
 Plugin 'vim-scripts/Pydiction'
 Plugin 'vim-scripts/indentpython.vim'
 Plugin 'scrooloose/syntastic'
+Plugin 'tell-k/vim-autopep8'
 
 " Auto completion
 Plugin 'davidhalter/jedi-vim'
