@@ -17,14 +17,7 @@ Plugin 'jistr/vim-nerdtree-tabs'
 Plugin 'kien/ctrlp.vim'
 
 " Python  sytax checker
-Plugin 'nvie/vim-flake8'
-Plugin 'vim-scripts/Pydiction'
-Plugin 'vim-scripts/indentpython.vim'
-Plugin 'scrooloose/syntastic'
-Plugin 'tell-k/vim-autopep8'
-
-" Auto completion
-Plugin 'davidhalter/jedi-vim'
+Plugin 'majutsushi/tagbar'
 
 " Code folding
 Plugin 'tmhedberg/SimpylFold'
@@ -96,20 +89,10 @@ else
 endif
 
 nnoremap <F5> :NERDTreeToggle<CR>
-
-" Taglist stuff
-let Tlist_Auto_Highlight_Tag=1  
-let Tlist_Show_One_File=1
-let Tlist_Exit_OnlyWindow=1
-let Tlist_Auto_Update=1  
-let Tlist_Use_Right_Window=1  
-nnoremap <silent> <F8> :TlistToggle<CR>  
+nmap <F8> :TagbarToggle<CR>
 
 filetype plugin on  
-autocmd FileType python set omnifunc=pythoncomplete#Complete  
 
-" 设置pydiction位置
-let g:pydiction_location='~/.vim/bundle/Pydiction/complete-dict'
 
 """"""""""""""""""""""
 " Quickly Run
