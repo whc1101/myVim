@@ -42,15 +42,15 @@ filetype plugin indent on    " required
 " Turn on numbering
 set nu
 
-"------------Start Python PEP 8 stuff----------------
 " Number of spaces that a pre-existing tab is equal to.
-au BufRead,BufNewFile *py,*pyw,*.c,*.h set tabstop=4
+set tabstop=4
 
 " Spaces for indents
-au BufRead,BufNewFile *.py,*pyw set shiftwidth=4
-au BufRead,BufNewFile *.py,*.pyw set expandtab
-au BufRead,BufNewFile *.py set softtabstop=4
+set shiftwidth=4
+set expandtab
+set softtabstop=4
 
+"------------Start Python PEP 8 stuff----------------
 " Use the below highlight group when displaying bad whitespace is desired.
 highlight BadWhitespace ctermbg=red guibg=red
 
@@ -89,10 +89,10 @@ nnoremap <space> za
 " Color adaptive
 set t_Co=256
 if has('gui_running')
-	set background=dark
-	colorscheme solarized
+    set background=dark
+    colorscheme solarized
 else
-	colorscheme molokai
+    colorscheme molokai
 endif
 
 nnoremap <F5> :NERDTreeToggle<CR>
@@ -116,19 +116,19 @@ let g:pydiction_location='~/.vim/bundle/Pydiction/complete-dict'
 """"""""""""""""""""""
 map <F10> :call CompileRunGcc()<CR>
 func! CompileRunGcc()
-	exec "w"
-	if &filetype == 'c'
-		exec "!g++ % -o %<"
-		exec "!time ./%<"
-	elseif &filetype == 'cpp'
-		exec "!g++ % -o %<"
-		exec "!time ./%<"
-	elseif &filetype == 'java'
-		exec "!javac %"
-		exec "!time java %<"
-	elseif &filetype == 'sh'
-		:!time bash %
-	elseif &filetype == 'python'
-		exec "!time python %"
-	endif
+    exec "w"
+    if &filetype == 'c'
+        exec "!g++ % -o %<"
+        exec "!time ./%<"
+    elseif &filetype == 'cpp'
+        exec "!g++ % -o %<"
+        exec "!time ./%<"
+    elseif &filetype == 'java'
+        exec "!javac %"
+        exec "!time java %<"
+    elseif &filetype == 'sh'
+        :!time bash %
+    elseif &filetype == 'python'
+        exec "!time python %"
+    endif
 endfunc
