@@ -43,6 +43,14 @@ set shiftwidth=4
 set expandtab
 set softtabstop=4
 
+" 插入匹配括号
+inoremap ( ()<LEFT> " 插入模式下,(映射为（),并用<LEFT>左移一位
+inoremap [ []<LEFT>
+inoremap { {}<LEFT>
+inoremap < <><LEFT>
+inoremap " ""<LEFT>
+inoremap ' ''<LEFT>
+
 "------------Start Python PEP 8 stuff----------------
 " Use the below highlight group when displaying bad whitespace is desired.
 highlight BadWhitespace ctermbg=red guibg=red
