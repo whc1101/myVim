@@ -44,7 +44,7 @@ set expandtab
 set softtabstop=4
 
 " 插入匹配括号
-inoremap ( ()<LEFT> " 插入模式下,(映射为（),并用<LEFT>左移一位
+inoremap ( ()<LEFT>
 inoremap [ []<LEFT>
 inoremap { {}<LEFT>
 inoremap < <><LEFT>
