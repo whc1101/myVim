@@ -10,3 +10,6 @@ $cp vimrc ~/.vimrc
 
 step3:
 $open vim and do the command ':PluginInstall'
+
+step4:
+$sudo apt install ctags
