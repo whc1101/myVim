@@ -16,7 +16,7 @@ Plugin 'scrooloose/nerdtree'
 Plugin 'jistr/vim-nerdtree-tabs'
 Plugin 'kien/ctrlp.vim'
 
-" Python  sytax checker
+" Outline
 Plugin 'majutsushi/tagbar'
 
 " Code folding
