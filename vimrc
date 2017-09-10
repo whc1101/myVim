@@ -11,6 +11,8 @@ call vundle#begin()
 " let Vundle manage Vundle, required
 Plugin 'gmarik/Vundle.vim'
 
+" Add all your plugins here (note older versions of Vundle used Bundle instead of Plugin)
+
 " filesystem
 Plugin 'scrooloose/nerdtree'
 Plugin 'jistr/vim-nerdtree-tabs'
@@ -22,15 +24,22 @@ Plugin 'majutsushi/tagbar'
 " Code folding
 Plugin 'tmhedberg/SimpylFold'
 
+" Auto completion
+Plugin 'Valloric/YouCompleteMe'
+Plugin 'jiangmiao/auto-pairs'
+
 " Colors
 Plugin 'altercation/vim-colors-solarized'
 Plugin 'tomasr/molokai'
 
-" Add all your plugins here (note older versions of Vundle used Bundle instead of Plugin)
+" Status line
+"Plugin 'vim-airline/vim-airline'
+"Plugin 'vim-airline/vim-airline-themes'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
+
 
 " Turn on numbering
 set nu
@@ -38,54 +47,25 @@ set nu
 " Number of spaces that a pre-existing tab is equal to.
 set tabstop=4
 
+" Global clipboard
+set clipboard=unnamed
+
 " Spaces for indents
 set shiftwidth=4
 set expandtab
 set softtabstop=4
 
-" 插入匹配括号
-inoremap ( ()<LEFT>
-inoremap [ []<LEFT>
-inoremap { {}<LEFT>
-inoremap < <><LEFT>
-inoremap " ""<LEFT>
-inoremap ' ''<LEFT>
-
-"------------Start Python PEP 8 stuff----------------
-" Use the below highlight group when displaying bad whitespace is desired.
-highlight BadWhitespace ctermbg=red guibg=red
-
-" Display tabs at the beginning of a line in Python mode as bad.
-au BufRead,BufNewFile *.py,*.pyw match BadWhitespace /^\t\+/
-
-" Make trailing whitespace be flagged as bad.
-au BufRead,BufNewFile *.py,*.pyw,*.c,*.h match BadWhitespace /\s\+$/
-
-" Wrap text after a certain number of characters
-au BufRead,BufNewFile *.py,*.pyw, set textwidth=100
-
-" Use UNIX (\n) line endings.
-au BufNewFile *.py,*.pyw,*.c,*.h set fileformat=unix
-
 " Set the default file encoding to UTF-8:
 set encoding=utf-8
 
-" For full syntax highlighting:
-let python_highlight_all=1
-syntax on
+" Set stauts
+set statusline=%2*%n%m%r%h%w%*\ %F\ %1*[FORMAT=%2*%{&ff}:%{&fenc!=''?&fenc:&enc}%1*]\ [TYPE=%2*%Y%1*]\ [COL=%2*%03v%1*]\ [ROW=%2*%03l%1*/%3*%L(%p%%)%1*]
 
-" Keep indentation level from previous line:
-autocmd FileType python set autoindent
+" Set show cmd
+set showcmd
 
 " make backspaces more powerfull
 set backspace=indent,eol,start
-
-" Folding based on indentation:
-autocmd FileType python set foldmethod=indent
-
-" Use space to open folds
-nnoremap <space> za 
-"----------Stop python PEP 8 stuff--------------
 
 " Color adaptive
 set t_Co=256
@@ -97,10 +77,11 @@ else
 endif
 
 nnoremap <F5> :NERDTreeToggle<CR>
+let NERDTreeIgnore = ['\.pyc']
+
 nmap <F8> :TagbarToggle<CR>
 
 filetype plugin on  
-
 
 """"""""""""""""""""""
 " Quickly Run
